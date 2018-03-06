@@ -2,7 +2,7 @@ package com.iphotowalking.samples.web;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.iphotowalking.samples.common.MyConifg;
+import com.iphotowalking.samples.config.MyConifg;
 import com.iphotowalking.samples.common.WResponse;
 import com.iphotowalking.samples.exception.BusinessException;
 import com.iphotowalking.samples.utils.RedisUtils;
@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 

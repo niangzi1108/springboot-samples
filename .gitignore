@@ -2,6 +2,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 ###LIB###
 lib/
+apidoc/
 
 ### STS ###
 .apt_generated

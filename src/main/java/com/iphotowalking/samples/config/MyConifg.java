@@ -1,4 +1,4 @@
-package com.iphotowalking.samples.common;
+package com.iphotowalking.samples.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
