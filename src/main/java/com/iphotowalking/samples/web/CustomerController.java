@@ -33,8 +33,41 @@ public class CustomerController {
         return retMap;
     }
 
-    @GetMapping("/getall/{pageNum}/{pageSize}")
-    public WResponse findAllUsersPage(@PathVariable("pageNum") int pageNum, @PathVariable("pageSize") int pageSize){
+    /**
+     * @api {get} /user/getall 获取用户（分页）
+     * @apiName   GetAllUserPage
+     * @apiGroup User
+     *
+     * @apiParam  {String}  offset 返回记录的开始位置
+     * @apiParam  {String}  limit 指定返回记录的数量
+     * @apiExample {curl} 样例：
+     *  curl -i http://api.example.com/v1/user/getall?offset=0&limit=5
+     *
+     * @apiSuccess (成功响应) {int}  code 返回码 ，200表示成功，其他表示失败
+     * @apiSuccess (成功响应) {String}  msg 返回信息 成功返回 OK
+     * @apiSuccess (成功响应) {Object}  data 返回体数据
+     * @apiSuccessExample   {json}  Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *        "code": 200
+     *        "msg": "OK",
+     *        "data":{
+     *            nickname:" 小志"
+     *        }
+     *     }
+     *
+     *   @apiError 9000  请求超时
+     *   @apiErrorExample {json} Error-Response:
+     *   HTTP/1.1 400  Bad Request
+     *   {
+     *      "code": "9000"
+     *      "msg": "请求超时"
+     *   }
+     *
+     *   @apiVersion 1.0.0
+     */
+    @GetMapping("/getall")
+    public WResponse findAllUsersPage(@RequestParam("offset") int pageNum, @RequestParam("limit") int pageSize){
         logger.info("pageNum:{},pageSize:{}",pageNum,pageSize);
 
         List<Customer> list =  customerService.findAllCustomersPage(pageNum,pageSize);
