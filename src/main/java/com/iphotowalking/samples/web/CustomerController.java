@@ -24,6 +24,31 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
+    /**
+     * @api {get} /user/get/:openid 获取指定用户信息
+     * @apiName   GetUseOne
+     * @apiGroup User
+     *
+     * @apiParam  {String}  openid 用户openid
+     * @apiExample {curl} 样例：
+     *  curl -i http://api.example.com/v1/user/get/oPskq1SIo24iEDvYtso5UlDMqP7A
+     *
+     * @apiSuccess (成功返回) {int}  code 返回码 ，200表示成功，其他表示失败
+     * @apiSuccess (成功返回) {String}  msg 返回信息 成功返回 OK
+     * @apiSuccess (成功返回) {Object}  data 返回体数据
+     * @apiSuccessExample   {json}  Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *        "code": 200
+     *        "msg": "OK",
+     *        "data":{
+     *            nickname:" 小志" ,
+     *            "customer_type": "BUYER"
+     *        }
+     *     }
+     *
+     *   @apiVersion 1.0.0
+     */
     @GetMapping("/get/{openid}")
     public Map<String,Object> findByOpenid(@PathVariable("openid") String openid){
 
@@ -34,7 +59,7 @@ public class CustomerController {
     }
 
     /**
-     * @api {get} /user/getall 获取用户（分页）
+     * @api {get} /user/getall 获取用户信息（分页）
      * @apiName   GetAllUserPage
      * @apiGroup User
      *
@@ -43,16 +68,17 @@ public class CustomerController {
      * @apiExample {curl} 样例：
      *  curl -i http://api.example.com/v1/user/getall?offset=0&limit=5
      *
-     * @apiSuccess (成功响应) {int}  code 返回码 ，200表示成功，其他表示失败
-     * @apiSuccess (成功响应) {String}  msg 返回信息 成功返回 OK
-     * @apiSuccess (成功响应) {Object}  data 返回体数据
+     * @apiSuccess (成功返回) {int}  code 返回码 ，200表示成功，其他表示失败
+     * @apiSuccess (成功返回) {String}  msg 返回信息 成功返回 OK
+     * @apiSuccess (成功返回) {Object}  data 返回体数据
      * @apiSuccessExample   {json}  Success-Response:
      *     HTTP/1.1 200 OK
      *     {
      *        "code": 200
      *        "msg": "OK",
      *        "data":{
-     *            nickname:" 小志"
+     *            "nickname":" 小志" ,
+     *            "customer_type": "BUYER"
      *        }
      *     }
      *

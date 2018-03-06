@@ -2,12 +2,15 @@ package com.iphotowalking.samples.web;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.iphotowalking.samples.common.MyConifg;
 import com.iphotowalking.samples.common.WResponse;
 import com.iphotowalking.samples.exception.BusinessException;
 import com.iphotowalking.samples.utils.RedisUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -29,6 +32,20 @@ public class TestController {
     @Autowired
     RestTemplate restTemplate;
 
+    @Value("${server.port}")
+    private String port;
+
+    @Autowired
+    MyConifg myConifg;
+
+    @GetMapping("/props/get")
+    public WResponse testGetpros() {
+        String value = port + "_" + myConifg.getVersion() + "_" + myConifg.getName();
+        logger.info("props:" + value);
+        return new WResponse(value);
+    }
+
+
     /**
      * @api {get} /test/redis/get/:key 获取redis键值
      * @apiName   GetRedisKeyValue
@@ -36,9 +53,9 @@ public class TestController {
      *
      * @apiParam  {String}  key redis key值
      *  
-     * @apiSuccess (成功响应) {int}  code 返回码 ，200表示成功，其他表示失败
-     * @apiSuccess (成功响应) {String}  msg 返回信息 成功返回 OK
-     * @apiSuccess (成功响应) {Object}  data 返回体数据
+     * @apiSuccess (成功返回) {int}  code 返回码 ，200表示成功，其他表示失败
+     * @apiSuccess (成功返回) {String}  msg 返回信息 成功返回 OK
+     * @apiSuccess (成功返回) {Object}  data 返回体数据
      * @apiSuccessExample   {json}  Success-Response:
      *     HTTP/1.1 200 OK
      *     {
@@ -80,8 +97,8 @@ public class TestController {
      *     "value":"this is a test value"
      * }
      *
-     * @apiSuccess (成功响应) {int}  code 返回码 ，200表示成功，其他表示失败
-     * @apiSuccess (成功响应) {String}  msg 返回信息 成功返回 OK
+     * @apiSuccess (成功返回) {int}  code 返回码 ，200表示成功，其他表示失败
+     * @apiSuccess (成功返回) {String}  msg 返回信息 成功返回 OK
      * @apiSuccessExample   {json}  Success-Response:
      *     HTTP/1.1 200 OK
      *     {
@@ -118,9 +135,9 @@ public class TestController {
      * @apiName   Get Weixin AccessToken
      * @apiGroup Test
      *
-     * @apiSuccess (成功响应) {int}  code 返回码 ，200表示成功，其他表示失败
-     * @apiSuccess (成功响应) {String}  msg 返回信息  成功返回 OK
-     * @apiSuccess (成功响应) {Object}  data 返回体数据
+     * @apiSuccess (成功返回) {int}  code 返回码 ，200表示成功，其他表示失败
+     * @apiSuccess (成功返回) {String}  msg 返回信息  成功返回 OK
+     * @apiSuccess (成功返回) {Object}  data 返回体数据
      * @apiSuccessExample   {json}  Success-Response:
      *     HTTP/1.1 200 OK
      *     {

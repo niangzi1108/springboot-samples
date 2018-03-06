@@ -61,7 +61,12 @@
 	  </exclusions>
 	</dependency>
 
-	
+	<!-- 支持 @ConfigurationProperties 注解 -->
+	<dependency>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot-configuration-processor</artifactId>
+	  <optional>true</optional>
+	</dependency>
 
 	<!--redis session-->
 	<dependency>
@@ -217,7 +222,9 @@
 		<!-- 是否替换@xx@表示的maven properties属性值 -->
 		<filtering>true</filtering>
 		<includes>
+		  <include>config/base-${profileActive}.yml</include>
 		  <include>mapper/*.xml</include>
+		  <include>bootstrap.yml</include>
 		  <include>application.yml</include>
 		  <include>application-${profileActive}.yml</include>
 		  <include>logback.xml</include>
