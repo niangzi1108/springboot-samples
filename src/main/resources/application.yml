@@ -4,3 +4,10 @@ spring:
     store-type: redis
   profiles:
     active: @profileActive@
+#  boot:
+#    admin:
+#      url: http://localhost:${server.port}
+#management:
+#  security:
+#    enabled: false
+

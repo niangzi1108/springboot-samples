@@ -1,13 +1,13 @@
 package com.iphotowalking.samples;
 
+//import de.codecentric.boot.admin.config.EnableAdminServer;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
 @MapperScan("com.iphotowalking.samples.mybatis.mapper")
+//@EnableAdminServer
 public class SpringbootSamplesApplication {
 
 	public static void main(String[] args) {

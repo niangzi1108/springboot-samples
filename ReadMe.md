@@ -1,5 +1,8 @@
 #springboot samples
 
+>学习资料  
+ [Spring Boot 从入门到进阶系列教程] (http://www.spring4all.com/article/246)
+
 + 使用yml格式配置文件
 > `application.yml` 
 

@@ -158,6 +158,24 @@
 	  <artifactId>spring-boot-starter-test</artifactId>
 	  <scope>test</scope>
 	</dependency>
+
+	<!--springboot admin-->
+	<!--<dependency>-->
+	  <!--<groupId>de.codecentric</groupId>-->
+	  <!--<artifactId>spring-boot-admin-server</artifactId>-->
+	  <!--<version>1.5.5</version>-->
+	<!--</dependency>-->
+	<!--<dependency>-->
+	  <!--<groupId>de.codecentric</groupId>-->
+	  <!--<artifactId>spring-boot-admin-server-ui</artifactId>-->
+	  <!--<version>1.5.5</version>-->
+	<!--</dependency>-->
+	<!--<dependency>-->
+	  <!--<groupId>de.codecentric</groupId>-->
+	  <!--<artifactId>spring-boot-admin-starter-client</artifactId>-->
+	  <!--<version>1.5.5</version>-->
+	<!--</dependency>-->
+
   </dependencies>
 
   <build>
