@@ -6,22 +6,25 @@ package com.iphotowalking.samples.common;
  */
 public class WResponse {
 
-    //响应码 0000：成功返回
-    private String code = "0000";
+    //响应码 200：成功返回
+    private int code = 200;
     //响应描述
     private String msg = "OK";
     //响应数据
     private Object data;
 
+    public WResponse(){
+        
+    }
     public WResponse(Object data) {
         this.data = data;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

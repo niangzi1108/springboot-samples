@@ -1,5 +1,7 @@
 {
   "name": "springboot-samples",
-  "version": "0.1.0",
-  "description": "A basic apiDoc example"
+  "version": "1.0.0",
+  "title": "Springboot Samples",
+  "description": "A basic apiDoc example",
+  "url" : "https://api.example.com/v1"
 }
