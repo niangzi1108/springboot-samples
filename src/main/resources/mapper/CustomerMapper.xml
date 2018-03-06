@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iphotowalking.samples.mybatis.mapper.CustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.iphotowalking.samples.mybatis.model.Customer" >
+    <id column="customer_id" property="customer_id" jdbcType="INTEGER" />
+    <result column="open_id" property="open_id" jdbcType="VARCHAR" />
+    <result column="trader_password" property="trader_password" jdbcType="VARCHAR" />
+    <result column="super_id" property="super_id" jdbcType="INTEGER" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="head_img" property="head_img" jdbcType="VARCHAR" />
+    <result column="customer_type" property="customer_type" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="qcode" property="qcode" jdbcType="VARCHAR" />
+    <result column="is_certify" property="is_certify" jdbcType="TINYINT" />
+    <result column="is_bank" property="is_bank" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+    <result column="up_time" property="up_time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    customer_id, open_id, trader_password, super_id, nickname, head_img, customer_type, 
+    name, mobile, qcode, is_certify, is_bank, status, create_time, up_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from di_customer
+    where customer_id = #{customer_id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByOpenid" resultType="com.iphotowalking.samples.mybatis.model.Customer">
+    select * from di_customer where open_id = #{openid}
+  </select>
+  <select id="selectAllCustomersPage" resultType="com.iphotowalking.samples.mybatis.model.Customer">
+    select
+    <include refid="Base_Column_List" />
+    from di_customer
+  </select>
+</mapper>
